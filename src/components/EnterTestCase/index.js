@@ -1,12 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import plusImg from "../../assets/plus.png";
 import caseImg from "../../assets/testcase.png";
 
 export default function EnterTestCase({ isHave }) {
+  const navigate = useNavigate();
+
   const handleCreate = () => {
-    console.log("생성");
+    navigate("/create");
   };
 
   const handleMoveCase = () => {
@@ -15,27 +18,27 @@ export default function EnterTestCase({ isHave }) {
 
   return (
     <div>
-      <WarpArticle onClick={isHave ? handleMoveCase : handleCreate}>
-        <WarpImg>
+      <WrapArticle onClick={isHave ? handleMoveCase : handleCreate}>
+        <WrapImg>
           {isHave ? (
             <ImgCanvas style={{ width: "100%", height: "100%" }} src={caseImg} alt="TC이미지" />
           ) : (
             <ImgCanvas src={plusImg} alt="생성이미지" />
           )}
-        </WarpImg>
-        <WarpTitle>{isHave ? "version" : "생성하기"}</WarpTitle>
-      </WarpArticle>
+        </WrapImg>
+        <WrapTitle>{isHave ? "version" : "생성하기"}</WrapTitle>
+      </WrapArticle>
     </div>
   );
 }
 
-const WarpArticle = styled.article`
+const WrapArticle = styled.article`
   width: 200px;
   height: 200px;
   cursor: pointer;
 `;
 
-const WarpImg = styled.div`
+const WrapImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,7 +52,7 @@ const ImgCanvas = styled.img`
   height: 25%;
 `;
 
-const WarpTitle = styled.p`
+const WrapTitle = styled.p`
   padding: 10px;
 `;
 

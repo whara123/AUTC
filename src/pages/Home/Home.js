@@ -8,7 +8,7 @@ export default function Home() {
   const isNotHave = false;
   return (
     <div>
-      <Header />
+      <Header pageName="AUTC 메인 페이지" />
       <MainWarp>
         <EnterTestCase isHave={isHave} />
         <EnterTestCase isHave={isNotHave} />

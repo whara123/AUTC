@@ -33,4 +33,8 @@ export default createGlobalStyle`
     border : none;
     cursor : pointer;
   }
+
+  li{
+    list-style: none;
+  }
 `;
